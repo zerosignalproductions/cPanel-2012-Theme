@@ -1,0 +1,95 @@
+<table id="stats_extended" class="truncate-table" cellpadding="0" cellspacing="0">
+
+<cpanelif $FORM{'rowcountervalue'}>
+    <cpanel setvar="rowcountervalue=$FORM{'rowcountervalue'}">
+</cpanelif>
+<cpanelif $FORM{'rowcounter'}>
+    <cpanel setvar="rowcounter=$FORM{'rowcounter'}">
+</cpanelif>
+
+
+<?cp StatsBar::setrowcounter(,) rowcounter=$CPVAR{'rowcounter'},rowcountervalue=$CPVAR{'rowcountervalue'} ?> 
+<cpanelif $CPVAR{'mailonlytheme'}>
+    <?cp StatsBar::stat(
+    [tr class="row-%"]
+        [td class="stats_left"]%[/td]
+        [td class="stats_right"]
+            % / %[br /]
+            [div class="stats_progress_bar"]
+                [div class="cpanel_widget_progress_bar_percent" style="display\{colon}none"]%[/div]
+            [/div]
+        [/td]
+    [/tr]
+    ,rowtype,item,count,max,percent) display=emailac_counts|mailinglists|autoresponders|emailforwarders,infinitylang=true,rowcounter=$CPVAR{'rowcounter'} ?>
+</cpanelif>
+
+<cpanelif !$CPVAR{'mailonlytheme'}>
+    <?cp StatsBar::stat(
+    [tr class="row-%"]
+        [td class="stats_left"]%[/td]
+        [td class="stats_right"]
+            % / %[br /]
+            [div class="stats_progress_bar"]
+                [div class="cpanel_widget_progress_bar_percent" style="display\{colon}none"]%[/div]
+            [/div]
+        [/td]
+    [/tr]
+    ,rowtype,item,count,max,percent) display=emailac_counts|subdomains|parkeddomains|addondomains|ftpaccounts|mailinglists|sqldatabases,infinitylang=true,rowcounter=$CPVAR{'rowcounter'} ?>
+    <?cp StatsBar::stat(
+    [tr class="row-%"]
+        [td class="stats_left"]%[/td]
+        [td class="stats_right" title="${value}"]%[/td]
+    [/tr]
+    ,rowtype,item,count) display=mysqldatabases,infinitylang=true,rowcounter=$CPVAR{'rowcounter'} ?>
+
+</cpanelif>
+
+<cpanelif $haspostgres && !$CPVAR{'mailonlytheme'}>
+    <?cp StatsBar::stat(
+    [tr class="row-%"]
+        [td class="stats_left"]%[/td]
+        [td class="stats_right" title="${value}"]%[/td]
+    [/tr]
+    ,rowtype,item,count) display=postgresqldatabases,infinitylang=true,rowcounter=$CPVAR{'rowcounter'} ?>
+</cpanelif>
+
+<cpanelif $CONF{'disk_usage_include_sqldbs'}>
+<?cp StatsBar::stat(
+[tr class="row-%"]
+    [td class="stats_left"]%[/td]
+    [td class="stats_right"]% MB[/td]
+[/tr]
+,rowtype,item,count) display=cachedmysqldiskusage|cachedpostgresdiskusage,rowcounter=$CPVAR{'rowcounter'} ?>
+</cpanelif>
+
+<cpanelif $CONF{'disk_usage_include_mailman'}>
+<?cp StatsBar::stat(
+[tr class="row-%"]
+    [td class="stats_left"]%[/td]
+    [td class="stats_right"]% MB[/td]
+[/tr]
+,rowtype,item,count) display=cachedlistdiskusage,rowcounter=$CPVAR{'rowcounter'} ?>
+</cpanelif>
+
+<?cp StatsBar::stat(
+[tr class="row-%"]
+    [td class="stats_left"]%[/td]
+    [td class="stats_right" title="${value}"]%[/td]
+[/tr]
+,rowtype,item,value) display=hostingpackage|shorthostname|cpanelversion|theme|apacheversion|phpversion|mysqlversion|machinetype|operatingsystem|sharedip|dedicatedip|sendmailpath|perlpath|perlversion|kernelversion,rowcounter=$CPVAR{'rowcounter'} ?>
+
+<cpanelif $CPFLAGS{'pro'}>
+    <tr class="row-<?cp StatsBar::rowcounter(%,rowtype) rowcounter=$CPVAR{'rowcounter'} ?>">
+        <td class="stats_left"><cpanel langprint="cPanelPro"></td>
+        <td class="stats_right"><cpanel relrawinclude="cpanelpro/version">&nbsp;</td>
+    </tr>
+</cpanelif>
+
+<cpanelfeature serverstatus>
+    <tr class="row-<?cp StatsBar::rowcounter(%,rowtype) rowcounter=$CPVAR{'rowcounter'} ?>">
+        <td class="stats_left"><cpanel langprint="TServiceStatus"></td>
+        <td class="stats_right"><a href="status.html"><cpanel langprint="INDXPerlView"></a></td>
+    </tr>
+</cpanelfeature>
+
+</table>

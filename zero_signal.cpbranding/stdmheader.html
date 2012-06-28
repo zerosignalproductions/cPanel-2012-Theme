@@ -1,0 +1,53 @@
+</head>
+<body id="cpanel_body" class="yui-skin-sam">
+    <div id="cpanel">
+        <div id="border-efx">
+        <!--Handheld heading-->
+        
+        <!--Start Header-->
+        <div id="heading-top-header-bg" class="spriteheading_bg clearfix">
+            <div id="heading-top-billboard" class="spriteheading_compleximg">  
+                <div id="leftheader">
+                    <div id="logo">
+                    <cpanelif !$NVDATA{'x3_litegraphics'}>
+                        <a target="_top" href="<cpanel printvar="dprefix">index.html"><img id="logo-top-logo" alt="" src="<cpanel Branding="image(top-logo,0,$brandingpkg,0,0,0,0,0,1)">" class="toplogo"  /></a>
+                    </cpanelif>
+                    </div>
+                </div>            
+                <div id="rightheader">
+                <cpanelif !$FORM{'msg'}>
+                <a class="spriteheading_img" target="_top" href="<cpanel printvar="dprefix">index.html">
+                    <span id="heading-home_off"></span>
+                    Home
+                </a>
+                </cpanelif>
+                
+                <cpanelif !$FORM{'msg'} && !$CPVAR{'hidehelp'}>
+                <a class="spriteheading_img" onclick="show_help(); return false;" target="_blank" href="<cpanel printvar="dprefix">help.html?url=<cpanel Parser="firstfile_relative_uri()">">
+                    <span id="heading-help_off"></span>
+                    Help
+                </a>
+                </cpanelif>
+                
+                <a class="spriteheading_img" target="_top" href="<cpanel printvar="dprefix">contact/contactinfo.html">
+                    <span id="heading-contact_off"></span>
+                    Contact
+                </a>
+                
+                <a class="spriteheading_img" target="_top" href="http://www.cpanel.net/docs/cpanel/index.cgi?build=<cpanel print="$version">&amp;basetheme=x3&amp;theme=<cpanel print="$CPDATA{'RS'}">" target=_blank>
+                    <span id="heading-documentation_off"></span>
+                    Docs
+                </a>                   
+                
+                <a class="spriteheading_img" target="_top" href="/logout/?locale=<cpanel print="$locale">">
+                    <span id="heading-logout_off"></span>
+                    Logout
+                </a>
+                
+                </div>
+            </div>
+        </div>
+        <!--End Header-->
+        <div class="clearitsm">&nbsp;</div>
+        <!--Start Content-->
+        <div id="content">
