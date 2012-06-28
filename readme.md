@@ -14,7 +14,7 @@ Installing **cPanel 2012** is simple. If you're a reseller or root cPanel user s
 
 ## Screenshots ##
 
-[![Theme Index](http://i.imgur.com/gf3q2s.png)](http://i.imgur.com/gf3q2s.png)
+[![Theme Index](http://i.imgur.com/gf3q2s.png)](http://i.imgur.com/gf3q2.png)
 [![Theme Subpage](http://i.imgur.com/avipRs.png)](http://i.imgur.com/avipR.png)
 
 ## TODO ##
@@ -25,5 +25,7 @@ Installing **cPanel 2012** is simple. If you're a reseller or root cPanel user s
 
 ## Notes ##
 You must install this file as a .tar.gz for it to work. Even if you download it from here make sure you rezip it before trying to upload.
+
+This theme has only been tested in the lastest versions of **Chrome** and **Firefox** in Windows 7. If there are any errors or bugs in other browers just let me know and I'll get them fixed. 
 
 Coquette Icon Set by [DryIcons](http://dryicons.com)
