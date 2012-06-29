@@ -1125,8 +1125,20 @@ table.sortable, table.nonsortable, table.dynamic_table {
 }
 
 #content {
-    width: 100%;
+    width: 940px;
     margin: 1.5em auto 0 auto;
+    padding: 0;
+}
+
+#cpanel #border-efx #content {
+    width: 940px !important;
+}
+ 
+#main {
+    width: 620px;
+    float: right;
+    min-height: 300px;
+    margin: 0;
     padding: 0;
 }
 
@@ -1160,14 +1172,6 @@ table.sortable, table.nonsortable, table.dynamic_table {
     margin: 0;
     padding: 0;
     text-shadow: 0 -1px 0 rgba(255, 255, 255, .7);
-}
-
-#main {
-    width: 497px;
-    float: right;
-    min-height: 300px;
-    margin: 0 15px 0 5px;
-    padding: 0;
 }
 
 #heading-bottom_bg {
@@ -3686,19 +3690,6 @@ html[dir=rtl] #login-status-message {
     padding: 0;
     text-align: center;
 }
-
-#cpanel #border-efx #content {
-    width: 940px;
-}
- 
-#cpanel #border-efx #content #main {
-    width: 620px;
-    float: right;
-    min-height: 300px;
-    margin: 0;
-    padding: 0;
-}
-
 
 #optionselect-content {
     background-color: #E4EFF2;
