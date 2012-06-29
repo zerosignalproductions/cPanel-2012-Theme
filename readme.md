@@ -29,3 +29,5 @@ You must install this file as a .tar.gz for it to work. Even if you download it 
 This theme has only been tested in the lastest versions of **Chrome** and **Firefox** in Windows 7. If there are any errors or bugs in other browers just let me know and I'll get them fixed. 
 
 Coquette Icon Set by [DryIcons](http://dryicons.com)
+
+This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. To view a copy of this license, visit [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://creativecommons.org/licenses/by-nc-sa/3.0/) or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
