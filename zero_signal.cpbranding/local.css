@@ -1484,6 +1484,7 @@ table.sortable, table.nonsortable, table.dynamic_table {
 #faaboard {
     padding: 0 10px;
     width: auto;
+    font-size: 12px;
 }
 
 #faa h3 {
@@ -1525,7 +1526,6 @@ table.sortable, table.nonsortable, table.dynamic_table {
     width: 100%;
     padding: 0;
     margin: 0;
-    font-family: 'Open Sans', sans-serif;
 }
 
 #stats, #stats_extended {
@@ -1808,7 +1808,7 @@ table.sortable, table.nonsortable, table.dynamic_table {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 3px;
+    padding: 3px 8px;
     color: #fff;
     font-size: 10px;
     text-align: right;
@@ -1924,8 +1924,8 @@ table.sortable, table.nonsortable, table.dynamic_table {
     margin-top: 1em;
 }
 
-.bpkg div a {
-    height: 288px;
+.bpkg div a, .bpkg div img {
+    max-height: 288px;
     overflow: hidden;
     display: block;
 }
