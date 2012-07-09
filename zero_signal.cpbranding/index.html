@@ -191,7 +191,7 @@ YAHOO.util.Event.onDOMReady(init_extended_stats);
 
 <div id="main">
     
-        
+    <cpanelif $isreseller || $isresellerlogin>    
     <div class="itembox" id="switchbox">
         <div class="cellbox">
             <div class="cellbox-header">
@@ -200,6 +200,7 @@ YAHOO.util.Event.onDOMReady(init_extended_stats);
             </div>        
             <div class="cellbox-body">        
                 <div id="switch">
+                </cpanelif>
                     <cpanelif $isreseller || $isresellerlogin>
                         <table width="100%">
                         <tr>
@@ -235,10 +236,12 @@ YAHOO.util.Event.onDOMReady(init_extended_stats);
                         </tr>	
                         </table>
                     </cpanelif>
+                    <cpanelif $isreseller || $isresellerlogin>
                 </div><!-- end switch -->            
             </div><!-- end .cellbox-body -->
         </div><!-- end .cellbox -->
     </div><!-- end .itembox -->
+	</cpanelif>
 
 <div id="boxes" class="clearfix">
     
