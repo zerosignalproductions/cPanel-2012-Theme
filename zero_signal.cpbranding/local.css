@@ -1074,7 +1074,7 @@ table.sortable, table.nonsortable, table.dynamic_table {
     width: 300px;
 }
 
-body#cpanel {
+body #cpanel {
     margin: 0 auto;
     padding: 0;
     border: none;
@@ -1632,16 +1632,16 @@ body#cpanel {
     font-family: 'Open Sans', sans-serif;
 }
 
-.h1Title,#h1Title {
+.h1Title,#h1Title, .page-title {
     font-family: 'Open Sans', sans-serif;
-    margin: 0 0 .75em 0;
-    font-size: 28px;
-    line-height: 32px;
-    font-weight: 600;
-    color: #333;
+    margin: 0 0 .75em 0 !important;
+    font-size: 28px !important;
+    line-height: 32px !important;
+    font-weight: 600 !important;
+    color: #333 !important;
     text-shadow: 0 -1px 0 rgba(255, 255, 255, .65);
-    padding-bottom: .75em;
-    border-bottom: 1px solid #ccc;
+    padding-bottom: .75em !important;
+    border-bottom: 1px solid #ccc !important;
 }
 
 .body-content h2 {
@@ -3037,7 +3037,7 @@ code.module-path {
     padding-left: 15px;
 }
 
-.highlight form:last-child, .module form:last-child, .highlight2 form:last-child {
+.highlight form:last-child, .module form:last-child, .highlight2 form:last-child, .reports-box form:last-child {
     margin-bottom: 0;
 }
 
@@ -3745,4 +3745,10 @@ toptop .ife-module {
     font-weight: bold;
     text-align: center;
     display: inline;
+}
+
+.page-nav { height: auto !important; }
+
+.yui-pg-jtp-options, .yui-pg-rpp-options {
+    margin-bottom: 0 !important;
 }
