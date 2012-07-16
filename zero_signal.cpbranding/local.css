@@ -1074,10 +1074,11 @@ table.sortable, table.nonsortable, table.dynamic_table {
     width: 300px;
 }
 
-#cpanel {
+body#cpanel {
     margin: 0 auto;
     padding: 0;
     border: none;
+    width: auto !important;
 }
 
 #border-efx {
@@ -3726,4 +3727,22 @@ toptop .ife-module {
 
 #clearspambox {
     margin-right: 30px;
+}
+
+.snumber {
+    position: absolute;
+    padding: 0;
+    float: left;
+    width: 15px;
+    height: 15px;
+    z-index: 5;
+    background: red;
+    border: 1px solid black;
+    font: 12 Arial,Helvetica,sans-serif;
+    color: white;
+    cursor: hand;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    display: inline;
 }
