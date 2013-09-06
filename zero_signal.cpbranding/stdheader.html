@@ -10,19 +10,17 @@
 </style>
 
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 <link href="<cpanel Branding="file(local.css,0,$brandingpkg,0,0,1,1,1)">" rel="stylesheet" type="text/css" />
 <!--[if gt IE 6]>
 <style type="text/css">
-	<cpanel relrawinclude="css/ie7-min.css">
+    <cpanel relrawinclude="css/ie7-min.css">
 </style>
 <![endif]-->
 <!--[if lt IE 7]>
 <link rel="stylesheet" type="text/css" href="<cpanel MagicRevision="uri("css/ie6-min.css")">" />
 <style type="text/css">
-.input-button{
-    background:url(<cpanel Branding="image(button-bg,0,$brandingpkg,0,0,0,0,0,1)">) repeat-x center;
-}
-</style>
+.input-button{ background:url(<cpanel Branding="image(button-bg,0,$brandingpkg,0,0,0,0,0,1)">) repeat-x center; } </style>
 <![endif]-->
 
 <cpanelif $CPVAR{'headerinclude'}>
@@ -30,16 +28,33 @@
 </cpanelif>
 
 <cpanel Branding="include(stdmheader.html)">
+
 <script type="text/javascript" src="<cpanel MagicRevision="uri("/yui-gen/utilities_container/utilities_container.js")">"></script>
 <script type="text/javascript" src="<cpanel MagicRevision="uri("js/x3_optimized.js")">"></script>
 <script type="text/javascript" src="<cpanel MagicRevision="uri("/cjt/cpanel-all-min.js")">"></script>
+
 <script type="text/javascript">
-//<![CDATA[
+
 // i18n for the CJT
 <cpanel relinclude="cjt/lang-min.js">
+
 // NVData
 var NVData={};
 <?cp NVData::get(NVData.%=unescape\{leftparenthesis}'%'\{rightparenthesis};,name,^value) html_encoded=1,names=icFAA ?>
-//]]>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
-<!-- END stdheader.html -->

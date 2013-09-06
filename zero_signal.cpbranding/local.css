@@ -1403,13 +1403,14 @@ body #cpanel {
     -webkit-transition: .2s linear border;
 }
 
-.spriteheading_img span{
+.spriteheading_img span, .spriteheading_img i{
     display: block;
     margin: 0 auto;
 }
 
+
 .spriteheading_img{
-    font-size: 10px;
+    font-size: 11px;
     display: inline-block;
     text-align: center;
     color: white;
@@ -1417,7 +1418,10 @@ body #cpanel {
     -webkit-transition: .2s linear opacity;
     -moz-transition: .2s linear opacity;
     transition: .2s linear opacity;
-    margin-left: 10px;
+    margin-left: 14px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
 }
 
 .spriteheading_img:hover {
@@ -3752,3 +3756,10 @@ toptop .ife-module {
 .yui-pg-jtp-options, .yui-pg-rpp-options {
     margin-bottom: 0 !important;
 }
+
+
+.h1Title .spriteicon_img_mini { display: none; }
+#icon-email-reports_mini, #icon-deliveryreport_mini { display: none; }
+#gettingstarted-content { width: 450px; }
+#ui-getstart-icon { margin-right: 10px; }
+#finder { text-align: left; font-size: 10px; }
