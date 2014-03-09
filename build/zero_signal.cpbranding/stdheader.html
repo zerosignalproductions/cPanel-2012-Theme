@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html dir="<?cp Locale::get_html_dir_attr(%,dir) ?>">
+<head>
+<title><cpanel langprint="cPanelX"></title>
+<cpanel relinclude="charset.html">
+<link rel="shortcut icon" href="<cpanel Branding="file(favicon.ico,0,$brandingpkg,0,0,0,0,1)">" type="image/x-icon" />
+<style type="text/css">
+    <?cp Branding::spritelist(.spriteheading_img span{position:relative;margin:0;padding:0;top:0px;background:url\{leftparenthesis}"%"\{rightparenthesis};}%,@spriteurl,images::#heading-${img}{background-position\{colon}0 -${cssposition}px;width\{colon}${width}px;height\{colon}${height}px;}:) imgtype=heading,subtype=img ?>
+    <cpanel Branding="include(sprites_yui.html)">
+</style>
+
+<link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css">
+<link href="<cpanel Branding="file(css/bootstrap.css,0,$brandingpkg,0,0,1,1,1)">" rel="stylesheet" type="text/css" />
+<link href="<cpanel Branding="file(css/cPanel-2014-Theme-theme.css,0,$brandingpkg,0,0,1,1,1)">" rel="stylesheet" type="text/css" />
+
+<!--[if gt IE 6]>
+<style type="text/css">
+    <cpanel relrawinclude="css/ie7-min.css">
+</style>
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="<cpanel MagicRevision="uri("css/ie6-min.css")">" />
+<style type="text/css">
+.input-button{ background:url(<cpanel Branding="image(button-bg,0,$brandingpkg,0,0,0,0,0,1)">) repeat-x center; } </style>
+<![endif]-->
+
+
+<cpanelif $CPVAR{'headerinclude'}>
+  <cpanel relinclude="$CPVAR{'headerinclude'}">
+</cpanelif>
+
+<cpanel Branding="include(stdmheader.html)">
+
+<script type="text/javascript" src="<cpanel MagicRevision="uri("/yui-gen/utilities_container/utilities_container.js")">"></script>
+<script type="text/javascript" src="<cpanel MagicRevision="uri("js/x3_optimized.js")">"></script>
+<script type="text/javascript" src="<cpanel MagicRevision="uri("/cjt/cpanel-all-min.js")">"></script>
+
+<script type="text/javascript">
+
+// i18n for the CJT
+<cpanel relinclude="cjt/lang-min.js">
+
+// NVData
+var NVData={};
+<?cp NVData::get(NVData.%=unescape\{leftparenthesis}'%'\{rightparenthesis};,name,^value) html_encoded=1,names=icFAA ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+

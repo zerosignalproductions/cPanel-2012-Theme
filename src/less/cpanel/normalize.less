@@ -1,0 +1,201 @@
+img, object, embed { max-width: 100% }
+
+/*--------------------------------------------------------------------------------
+ *  Theme Compatibility
+ *--------------------------------------------------------------------------------*/
+#border-efx, #heading-top-header-bg, #heading-top-billboard, #logo, #content, #main, #cpanel_status_widget, #win, #heading-top_01_bg, #heading-top_01-sm_bg, #switch, #switchbox, #sub, #heading-bottom_bg, #rightheader, #leftheader, #main-content, #faa, #notices, #quota-warnings, #jump-search, #module-output, #boxes, #files,#logs,#mail,#domains,#db,#sec,#software,#pref,#advanced, #content-stats, #stats-header, #stats, #noticeboard, #quickjump, #faaboard, #stats_extended, #extended_stats, #manage-list, #branding, #help-content, #helplinks, #contactinfo, #tutorial_overlay, #tutorial_show, #tutorial_hide, #usage-table, #disk_usage_table, #sort_div, #sort_div_contents, #megabytes_header, #bytes_header, #owner_header, #home_total_row, #cpaddon, #optionselect-content, #sortable-search, #handheld-head, #togglebox, #stats-but, #latest-visit, #gen_pw_box, #ftp_settings, #cpanel_body, #generate_password_table, #generate_password_advanced_options, #generate_password_toggle_advanced_options, #generate_password_input_field, #generate_password_body_div, #generate_password_action_div, #generate_password_reload, #menu_drag_el, #drag_placeholder, #notify, #failure, #login-status, #login-status-message, #footer, #backup-nav, #optionselect-content, #icon-email-reports_mini, #icon-deliveryreport_mini, #gettingstarted-content, #ui-getstart-icon, #finder, #hide1  {
+  margin: 0;
+  padding: 0;
+}
+
+.itembox { .panel-variant(@panel-default-border; @panel-default-text; @panel-default-heading-bg; @panel-default-border); }
+.itembox { .panel() }
+.cellbox-header { .panel-heading() }
+.cellbox-body { .panel-body() }
+.index_box_header { .panel-title() }
+
+#rightheader, #leftheader { float: none; display: block; }
+#leftheader { overflow: hidden; float: left;}
+#rightheader { float: right;  }
+
+.spriteheading_img { margin-left: 0; }
+
+a br { display: none; }
+
+@media screen and (max-width: 321px) {
+  i.visible-xs { display: inline !important; }
+}
+
+/* Off Canvas */
+@media screen and (max-width: 767px) {
+  .row-offcanvas { position: relative; -webkit-transition: all 0.25s ease-out; -moz-transition: all 0.25s ease-out; transition: all 0.25s ease-out; left: 0; }
+  .row-offcanvas-right .sidebar-offcanvas { right: -50%; /* 6 columns */ }
+  .row-offcanvas-left .sidebar-offcanvas { left: -50%; /* 6 columns */ }
+  .row-offcanvas-right.active { right: 50%; /* 6 columns */ }
+  .row-offcanvas-left.active { left: 50%; /* 6 columns */ }
+  .sidebar-offcanvas { position: absolute; top: 0; width: 50%; /* 6 columns */ }
+  #main { float: none; width: auto; }
+  #sub { float: none; width: 50%;}
+}
+
+/*--------------------------------------------------------------------------------
+ *  cPanel Element Normalization and Resets
+ *--------------------------------------------------------------------------------*/
+
+
+#border-efx { border: none; }
+#heading-top-header-bg { width: 100%; z-index: 9999; }
+#heading-top-billboard { position: relative; margin: 0 auto; }
+#logo { float: left; opacity: 1.0; transition: .2s linear opacity; -webkit-transition: .2s linear opacity; -moz-transition: .2s linear opacity; }
+#logo:hover { opacity: .65; }
+
+#content { margin: 1.5em auto 0; }
+#main { min-height: 300px; }
+
+#cpanel_status_widget { left: 50%; margin: 0 0 0 -150px; padding: 8px 10px; position: fixed; text-align: center; top: 25px; width: 300px; }
+
+/* Start Help Code */
+#win { visibility: hidden; }
+
+.navbar-toggle { float: left; margin: 0 5px 0 -10px; padding: 9px 7px; }
+.navbar-toggle .icon-bar { background: #fff; }
+
+#heading-top_01_bg { width: auto; }
+#heading-top_01-sm_bg { height: 98px; }
+#content .body-content,.body-content { position: relative; }
+#switch { }
+#switchbox { margin-bottom: 1.5em; }
+#sub { min-height: 300px;  }
+#heading-bottom_bg { margin: 2em 0; width: 100%; height: 20px; }
+
+#main-content { margin: 0 5px 0 0; }
+#faa, #notices, #quota-warnings, #jump-search { margin-bottom: 1em; }
+#module-output { overflow: auto; padding: 0 10px; width: 680px; }
+
+/*--------------------------------------------------------------------------------
+ *  Global Classes
+ *--------------------------------------------------------------------------------*/
+
+.clear:after { clear: both; content: "."; display: block; height: 0; visibility: hidden; }
+.clear { display: block; overflow: hidden; }
+.clearith { height: 7px; clear: both; }
+.clearitmed { height: 4px; line-height: 4px; clear: both; font: 4px; }
+.clearitsm { height: 1px; line-height: 1px; clear: both; font: 1px; }
+
+/*--------------------------------------------------------------------------------
+ *  Index Page
+ *--------------------------------------------------------------------------------*/
+
+#sub h3 { }
+
+/* Homepage Boxes ------------------------------------------------------------*/
+#boxes { width: 100%; position: relative; }
+#boxes .itembox { margin: 0 0 1.5em 0; }
+#files,#logs,#mail,#domains,#db,#sec,#software,#pref,#advanced {  }
+
+.celldrop_active { width: 100; }
+.celldrop { width: 100%; padding: 0; display: none; }
+.topcell { padding: 0; margin: 0; text-align: center; }
+.cellform { padding: 0; margin: 0; display: inline; }
+.index_box_header { margin: 0; cursor: move; text-transform: none; }
+.cellbox-header h6:hover { cursor: move; }
+
+.box-expand-control, .box-collapse-control { position: absolute; right: 0; top: 0; cursor: pointer; cursor: hand; }
+.box-expand-control { width: 0; height: 0; }
+.box-collapse-control { float: right; width: 0; height: 0; }
+
+.cellbox { padding: 0; margin: 0; width: 100%; text-align: center; }
+.cellbox-header { position: relative; text-align: left; }
+.cellbox-body { overflow: hidden; width: 100%; margin: 0; zoom: 1; clear: both; }
+.cellbox .item { padding: 0; float: left; -webkit-transition: .2s linear border; }
+
+.spriteheading_img span, .spriteheading_img i{ display: block; margin: 0 auto; }
+.spriteheading_img{ display: inline-block; text-align: center; opacity: .4; -webkit-transition: .2s linear opacity; -moz-transition: .2s linear opacity; transition: .2s linear opacity; backface-visibility: hidden; -webkit-backface-visibility: hidden; -moz-backface-visibility: hidden; }
+.spriteheading_img:hover { opacity: 1.0; text-decoration: none; }
+.spriteheading_img i { vertical-align: middle; }
+.itemlink { text-decoration: none; cursor: pointer; cursor: hand; }
+
+
+
+/* Switch Box ----------------------------------------------------------------*/
+#switchbox {
+  .cellbox-body { }
+  .reseller-drop-l select{ }
+  .reseller-drop-r { }
+  .reseller-drop-l, .reseller-drop-r {  }
+}
+
+/* Notice Menu ---------------------------------------------------------------*/
+#noticeboard { width: auto; }
+
+/* Find Menu -----------------------------------------------------------------*/
+#jump-search h3 { margin: 0; }
+.jump-tbl { width: 100%; border-collapse: collapse; }
+#quickjump { }
+
+/* Frequently Accessed Areas Menu --------------------------------------------*/
+#faaboard { width: auto; }
+#faa h3 {  }
+#faa p, #notices p, #quota-warnings p, #jump-search p { text-align: left; padding: 0; }
+#faa ul, #notices ul { margin: 0; padding: 0; }
+#faa li, #notices li { list-style: none; margin: 0; }
+
+/* Stats Menu ----------------------------------------------------------------*/
+#content-stats { overflow: hidden; }
+#stats-header { cursor: pointer; position: relative; }
+#stats { width: 100%; }
+#stats, #stats_extended { table-layout: fixed; }
+#extended_stats { text-align: center; overflow: hidden; }
+.stats_progress_bar { }
+.stats_progress_bar div div { z-index: -1; }
+
+.stats_progress_bar_text, .stats_progress_bar_percent { display: none; }
+#stats table, #stats_extended table { border-collapse: collapse; overflow: hidden; }
+#stats td, #stats_extended td { border-collapse: collapse; overflow: hidden; }
+#stats .nopad-nobrd { padding: 0; margin: 0; border: none; }
+#stats .row-odd, #stats_extended .row-odd { }
+#stats .row-even,#stats_extended .row-even { }
+#stats .txt { }
+#stats .stats_left, #stats_extended .stats_left { text-align: left; }
+#stats .stats_right, #stats_extended .stats_right { padding-left: 10px; font: 10px Verdana,sans-serif; width: 55%; text-overflow: ellipsis; }
+#content-stats-end { width: 100%; padding-top: 5px; }
+
+/*--------------------------------------------------------------------------------
+ *  Footer
+ *--------------------------------------------------------------------------------*/
+.footer_ul { list-style: none; margin: 0; padding: 0; text-align: center; }
+.footer_li { display: inline; }
+.footer_li_a { }
+#branding { position: fixed; bottom: 0; left: 0; right: 0; text-align: right; }
+#branding a, #branding a:hover { }
+
+/*--------------------------------------------------------------------------------
+ *  Help Overlay
+ *--------------------------------------------------------------------------------*/
+#help-content { overflow: auto; }
+#help-content h2 { }
+#help-content h1 { }
+#help-content p, #help-content li { }
+#help-content a { text-decoration: underline; }
+#help-content ul li { list-style: disc; }
+
+#helplinks { }
+#helplinks a { }
+#helplinks ul { padding: 0; }
+#helplinks ul li { padding: 0; }
+
+/*--------------------------------------------------------------------------------
+ *  Contact Page
+ *--------------------------------------------------------------------------------*/
+#contactinfo { overflow: auto;  }
+#contactinfo ul { margin: 0; padding: 0; }
+#contactinfo li { }
+#contactinfo h2 { }
+
+/*--------------------------------------------------------------------------------
+ *  Branding Page
+ *--------------------------------------------------------------------------------*/
+.bpkg { overflow: hidden; }
+.bpkg h2 { overflow: hidden; }
+.bpkg ul { list-style-type: none; margin: 0; }
+.bpkg div a, .bpkg div img { overflow: hidden; display: block; }

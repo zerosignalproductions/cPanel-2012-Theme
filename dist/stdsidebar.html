@@ -1,0 +1,108 @@
+<div id="sub" class="col-xs-4 col-xs-4 col-md-4 col-lg-4">  
+  <div id="notices">
+    <h3><cpanel langprint="Notices"></h3>
+    <div id="noticeboard">
+      <cpanelif $ENV{'CPRESELLER'}>
+        <span class="warning"><strong><cpanel langprint="Warning"></strong> <cpanel langprint="TabsLoggedRootPsw"></span><br />
+      </cpanelif>
+      
+      <div id="main_page_warnings">&nbsp;</div>  
+      <p><cpanel News="displaynews()"></p>
+    </div>
+    <div class="clearit">&nbsp;</div>
+  </div><!-- end notices -->
+      
+  <div id="jump-search">
+    <h3><cpanel langprint="Jump"></h3>
+    <div class="jump-tbl">
+      <div id="finder" class="smalltext" align="center">
+        <cpanel langprint="Finderdesc">
+      </div>
+      <div id="find-contaienr">
+        <input type="text" name="find" id="quickjump" onkeyup="searchpage(this);" />
+        <strong id="clearlnk" style="display:none;" class="smalltext"><a onclick="clearsearch();return false;" href="#">x</a></strong>
+      </div>
+      <div id="gosearch" class="smalltext" style="display:none; margin: 0 auto" align="center">
+        <span class="caution"><cpanel langprint="JumpNoMatches"></span>
+      </div>
+    </div>
+  </div><!-- end jump-search -->
+
+  <div id="faa" style="display:none;">
+    <h3><cpanel langprint="FAA"></h3>
+    <div id="faaboard"></div>
+    <div class="clearit">&nbsp;</div>
+  </div><!-- end faa -->
+
+  <cpanelif $hascloudlinux>
+    <cpanel LVEInfo="start()">
+  </cpanelif>
+  
+  <div id="content-stats" class="newContent">
+    <div id="stats-header">
+      <div class="box-expand-control" id="toggle_extended_stats_img">&nbsp;</div>
+      <h3><cpanel langprint="SLStats"></h3>
+    </div>
+    <table id="stats" cellspacing="0" cellpadding="0">
+      <tr class="row-<?cp StatsBar::rowcounter(%,rowtype) rowcounter=mainstats ?>">
+        <td class="stats_left"><cpanel langprint="frontend-maindomain"></td>
+        <td class="stats_right"><b><cpanel print="$CPDATA{'DNS'}"></b></td>
+      </tr> 
+      <tr class="row-<?cp StatsBar::rowcounter(%,rowtype) rowcounter=mainstats ?>">
+        <td class="stats_left"><cpanel langprint="HomeDir"></td>
+        <td class="stats_right"><cpanel print="$homedir"></td>
+      </tr>
+      <cpanelif !$CPDATA{'DEMO'}>
+        <tr class="row-<?cp StatsBar::rowcounter(%,rowtype) rowcounter=mainstats ?>">
+          <td class="stats_left"><cpanel langprint="frontend-lastlogin"></td>
+          <td class="stats_right"><cpanel LastLogin="lastlogin(1)">&nbsp;</td>
+        </tr>
+      </cpanelif>
+      <cpanelif $hascloudlinux>
+      <?cp StatsBar::stat(
+        [tr class="row-%"]
+          [td class="stats_left"]%[/td]
+          [td class="stats_right"]
+            % / %[br /]
+            [div class="stats_progress_bar"]
+              [div class="cpanel_widget_progress_bar_percent" style="display\{colon}none"]%[/div]
+            [/div]
+          [/td]
+        [/tr]
+      ,rowtype,item,count,max,percent) display=lvecpu|lvemem|lvemep|diskusage|bandwidthusage,infinitylang=true,rowcounter=mainstats ?>
+      </cpanelif>
+      <cpanelif !$hascloudlinux>
+      <?cp StatsBar::stat(
+        [tr class="row-%"]
+          [td class="stats_left"]%[/td]
+          [td class="stats_right"]
+            % / %[br /]
+            [div class="stats_progress_bar"]
+              [div class="cpanel_widget_progress_bar_percent" style="display\{colon}none"]%[/div]
+            [/div]
+          [/td]
+        [/tr]
+      ,rowtype,item,count,max,percent) display=diskusage|bandwidthusage,infinitylang=true,rowcounter=mainstats ?>
+      </cpanelif>
+    </table>
+    <cpanelif $NVDATA{'xstatscollapsed'}==expanded>
+      <cpanel setvar="rowcounter=mainstats">
+      <div id="extended_stats">
+        <cpanel Branding="include(extended_statsbar.html)">
+      </div>
+      <div id="extended_stats_state" style="display: none">shown</div>
+      <div id="content-stats-end" style="">
+        <div id="extended_stats_loading_icon" style="display: none"></div>            
+        <a href="extended_stats_disable.html" id="toggle_extended_stats" class="action_link">collapse stats</a>
+      </div>
+    <cpanelelse>
+      <script type="text/javascript">var ROWCOUNTER = {}; <?cp StatsBar::getrowcounter(ROWCOUNTER.% = '%';,name,value) rowcounter=mainstats ?></script>
+      <div id="extended_stats" style="display: none"></div>
+      <div id="extended_stats_state" style="display: none">hidden</div>
+      <div id="content-stats-end">
+        <div id="extended_stats_loading_icon" style="display: none"></div>
+        <a href="extended_stats_enable.html" id="toggle_extended_stats" class="action_link">expand stats</a>
+      </div>
+    </cpanelif>
+  </div><!-- end content-stats -->
+</div><!-- end sub -->

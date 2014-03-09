@@ -1,0 +1,18 @@
+<!-- webmaillogininclude.html -->
+
+<style type="text/css">
+<?cp Branding::spritelist(.spriteicon_img_mini {float:left;margin-right:5px;background: url\{leftparenthesis}"%"\{rightparenthesis};} %,@spriteurl,images::#icon-${img}_mini {background-position\{colon}0 -${cssposition}px;width\{colon}${width}px;height\{colon}${height}px; }:) imgtype=icon,subtype=img,method=scale_60percent,format=png,img=webemail ?>
+</style>
+<div class="h1Title"><div class="spriteicon_img_mini" id="icon-webemail_mini"></div> <cpanel langprint="MENUWebmail"></div>
+    <p class="description"><cpanel langprint="WebmailDescription"></p>
+
+      <p> <cpanel langprint="WebmailLoginHintPre"><cpanel print="$CPDATA{'DNS'}"><cpanel langprint="WebmailLoginHintPost"></p>
+      <div align="center">
+      <cpanelif $ENV{'SERVER_PORT'}==2082>
+       <a href="<cpanel print="$ENV{'cp_security_token'}">/xferwebmail/" target="_blank"><img alt="<cpanel Locale="maketext('Webmail')">" border="0" src="<cpanel Branding="image(webemail)">" width="32" height="32"><br /><cpanel langprint="GoToWebmail"></a><br />
+    </cpanelif>
+    <cpanelif !$ENV{'SERVER_PORT'}==2082>
+       <a href="<cpanel print="$ENV{'cp_security_token'}">/xferwebmail/" target="_blank"><img alt="<cpanel Locale="maketext('Webmail')">" border="0" src="<cpanel Branding="image(webemailsecure)">" width="32" height="32"><br /><cpanel langprint="GoToWebmailSecure"></a><br />
+    </cpanelif>
+      </div>
+      <p> <cpanel langprint="WebmailDesktopPre"><cpanel print="$CPDATA{'DNS'}"><cpanel langprint="WebmailDesktopPost"></p>

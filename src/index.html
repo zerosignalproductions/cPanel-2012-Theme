@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<cpanel setvar="indexpage=1">
+<html dir="<?cp Locale::get_html_dir_attr(%,dir) ?>">
+<head>
+<cpanel relinclude="charset.html">
+<!-- Start branding/index.html -->
+<title><cpanel langprint="cPanelX"></title>
+
+<link rel="shortcut icon" href="<cpanel Branding="file(favicon.ico)">" type="image/x-icon" />
+
+<style type="text/css">
+    <?cp Branding::spritelist(.spriteicon_img{text-decoration:none;margin:0 auto 6px auto;width:32px;height:32px;background:url\{leftparenthesis}"%"\{rightparenthesis};} %,@spriteurl,images::#icon-${img}{background-position\{colon}0 -${cssposition}px;width\{colon}${width}px;height\{colon}${height}px;}:) imgtype=icon,subtype=img,skipgroups=1 ?>
+    <?cp Branding::spritelist(.spriteheading_img span{position:relative;margin:0;padding:0;top:0px;background:url\{leftparenthesis}"%"\{rightparenthesis};}%,@spriteurl,images::#heading-${img}{background-position\{colon}0 -${cssposition}px;width\{colon}${width}px;height\{colon}${height}px;}:) imgtype=heading,subtype=img ?>
+
+    <cpanel Branding="include(sprites_yui.html)">
+</style>
+
+<noscript>
+  <style type="text/css">
+    #themego, #acctgo { display: inline }
+    #jump-search { display: none }
+  </style>
+</noscript>
+
+<link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css">
+<link href="<cpanel Branding="file(css/bootstrap.css,0,$brandingpkg,0,0,1,1,1)">" rel="stylesheet" type="text/css" />
+<link href="<cpanel Branding="file(css/cPanel-2014-Theme-theme.css,0,$brandingpkg,0,0,1,1,1)">" rel="stylesheet" type="text/css" />
+
+<cpanelif $NVDATA{'x3_hideicons'}>
+  <style type="text/css">
+    #main .item {background: transparent;margin: 0px 3px 8px 3px;padding: 8px 3px 1px 5px;height: 100%;min-height: 40px;width: 65px;}
+    #main .item .itemlink {display:none;}
+    #main .item{height:63px;}
+    .spriteicon_img {display: none;background: none;}
+  </style>
+</cpanelif>
+
+<!-- Changes layout of index page for all non english languages -->
+<cpanelif !$locale==en>
+<style type="text/css"><cpanel relrawinclude="locale_css/$locale.css"></style>
+</cpanelif>
+
+
+<cpanel Branding="include(stdmheader.html)">
+        
+<script type="text/javascript">
+//<![CDATA[
+  var thisTheme = '<cpanel print="$CPDATA{'RS'}">';
+  var DEFAULT_BOX_ORDER = "<cpanel Branding="getapplistorder()">".split("|");
+  var NVData={};
+  <?cp NVData::get(NVData.%=unescape\{leftparenthesis}'%'\{rightparenthesis};,name,^value) html_encoded=1,names=xmainrollstatus|x3_gettingstarted|xstatscollapsed|x3finder|icFAA ?>
+  if ( NVData.x3finder == "off" ) {
+      document.write("<style type='text/css'>#finder { display: none }</style>");
+  }
+//]]>
+</script>
+
+<div class="clearitsm">&nbsp;</div>
+<!--Start Content-->
+<div id="content" class="container">
+  <div class="row">
+      
+          
+<div id="sub" class="sidebar-offcanvas col-xs-4 col-sm-4 col-md-4 col-lg-4">    
+  <div id="notices">
+    <h3><cpanel langprint="Notices"></h3>
+    <div id="noticeboard">
+      <cpanelif $ENV{'CPRESELLER'}>
+        <span class="warning"><strong><cpanel langprint="Warning"></strong> <cpanel langprint="TabsLoggedRootPsw"></span><br />
+      </cpanelif>
+      <div id="main_page_warnings">&nbsp;</div>
+      <p><cpanel News="displaynews()"></p>
+    </div>
+    <div class="clearit">&nbsp;</div>
+  </div><!-- end notices -->
+      
+  <div id="jump-search">
+    <h3><cpanel langprint="Jump"></h3>
+    <div class="jump-tbl">
+      <div id="finder" class="smalltext" align="center">
+        <cpanel langprint="Finderdesc">
+      </div>
+      <div id="find-contaienr">
+        <input type="text" name="find" id="quickjump" onkeyup="searchpage(this);" />
+        <strong  id="clearlnk" style="display:none;" class="smalltext"><a onclick="clearsearch();return false;" href="#">x</a></strong>
+      </div>
+      <div id="gosearch" class="smalltext" style="display:none; margin: 0 auto" align="center">
+        <span class="caution"><cpanel langprint="JumpNoMatches"></span>
+      </div>
+    </div>
+  </div><!-- end jump-search -->
+
+  <div id="faa" style="display:none;">
+    <h3><cpanel langprint="FAA"></h3>
+    <div id="faaboard"></div>
+    <div class="clearit">&nbsp;</div>
+  </div><!-- end faa -->
+
+  <cpanelif $hascloudlinux>
+    <cpanel LVEInfo="start()">
+  </cpanelif>
+
+  <div id="content-stats" class="newContent">
+    <div id="stats-header">
+      <div class="box-expand-control"  id="toggle_extended_stats_img">&nbsp;</div>
+      <h3><cpanel langprint="SLStats"></h3>
+    </div>
+    <table id="stats" cellspacing="0" cellpadding="0">
+      <tr class="row-<?cp StatsBar::rowcounter(%,rowtype) rowcounter=mainstats ?>">
+        <td class="stats_left"><cpanel langprint="frontend-maindomain"></td>
+        <td class="stats_right"><b><cpanel print="$CPDATA{'DNS'}"></b></td>
+      </tr> 
+      <tr class="row-<?cp StatsBar::rowcounter(%,rowtype) rowcounter=mainstats ?>">
+        <td class="stats_left"><cpanel langprint="HomeDir"></td>
+        <td class="stats_right"><cpanel print="$homedir"></td>
+      </tr>
+      <cpanelif !$CPDATA{'DEMO'}>
+        <tr class="row-<?cp StatsBar::rowcounter(%,rowtype) rowcounter=mainstats ?>">
+          <td class="stats_left"><cpanel langprint="frontend-lastlogin"></td>
+          <td class="stats_right"><cpanel LastLogin="lastlogin(1)">&nbsp;</td>
+        </tr>
+      </cpanelif>
+      <cpanelif $hascloudlinux>
+      <?cp StatsBar::stat(
+        [tr class="row-%"]
+          [td class="stats_left"]%[/td]
+          [td class="stats_right"]
+            % / %[br /]
+            [div class="stats_progress_bar"]
+              [div class="cpanel_widget_progress_bar_percent" style="display\{colon}none"]%[/div]
+            [/div]
+          [/td]
+        [/tr]
+      ,rowtype,item,count,max,percent) display=lvecpu|lvemem|lvemep|diskusage|bandwidthusage,infinitylang=true,rowcounter=mainstats ?>
+      </cpanelif>
+      <cpanelif !$hascloudlinux>
+      <?cp StatsBar::stat(
+        [tr class="row-%"]
+          [td class="stats_left"]%[/td]
+          [td class="stats_right"]
+            % / %[br /]
+            [div class="stats_progress_bar"]
+              [div class="cpanel_widget_progress_bar_percent" style="display\{colon}none"]%[/div]
+            [/div]
+          [/td]
+        [/tr]
+      ,rowtype,item,count,max,percent) display=diskusage|bandwidthusage,infinitylang=true,rowcounter=mainstats ?>
+      </cpanelif>
+    </table>
+    <cpanelif $NVDATA{'xstatscollapsed'}==expanded>
+      <cpanel setvar="rowcounter=mainstats">
+        <div id="extended_stats">
+          <cpanel Branding="include(extended_statsbar.html)">
+        </div>
+        <div id="extended_stats_state" style="display: none">shown</div>
+        <div id="content-stats-end" style="">
+          <div id="extended_stats_loading_icon" style="display: none"></div>            
+          <a href="extended_stats_disable.html" id="toggle_extended_stats" class="action_link">collapse stats</a>
+        </div>
+    <cpanelelse>
+      <script type="text/javascript">var ROWCOUNTER = {}; <?cp StatsBar::getrowcounter(ROWCOUNTER.% = '%';,name,value) rowcounter=mainstats ?></script>
+      <div id="extended_stats" style="display: none"></div>
+      <div id="extended_stats_state" style="display: none">hidden</div>
+      <div id="content-stats-end">
+        <div id="extended_stats_loading_icon" style="display: none"></div>      
+        <a href="extended_stats_enable.html" id="toggle_extended_stats" class="action_link">expand stats</a>
+      </div>
+    </cpanelif>
+  </div><!-- end content-stats -->
+</div><!-- end sub -->
+
+
+
+<script type="text/javascript" src="<cpanel MagicRevision="uri("/yui-gen/utilities_container/utilities_container.js")">"></script>
+<script type="text/javascript" src="<cpanel MagicRevision="uri("/cjt/cpanel-all-min.js")">"></script>
+<cpanel Branding="include(optionselect-script.html)">
+<script type="text/javascript" src="<cpanel MagicRevision="uri("js/x3main_optimized.js")">"></script>
+<script type="text/javascript">
+//<![CDATA[
+  truncate_on = 1;
+  truncate_start_row = 0;
+  truncate_wrap = 1;
+  truncate_tooltips = 0;
+  truncate_fontsize = 10;
+  register_truncate_table('stats');
+  maxwidth = 220;
+
+  // initialize the extended stats bar
+  YAHOO.util.Event.onDOMReady(init_extended_stats);
+//]]>
+</script>
+
+
+
+<div id="main" class="col-xs-8 col-xs-8 col-md-8 col-lg-8">
+  <cpanelif $isreseller || $isresellerlogin>    
+    <div class="itembox" id="switchbox">
+      <div class="cellbox">
+        <div class="cellbox-header">
+          <h6 id="pref-header" title="Double click to collapse/expand. Click to drag." class="index_box_header" ondblclick="rollbox(this);">Switch</h6>
+          <div id="pref-expander" class="box-collapse-control" onclick="rollbox(this);">&nbsp;</div>
+        </div>        
+        <div class="cellbox-body">        
+          <div id="switch">
+              </cpanelif> 
+              <cpanelif $isreseller || $isresellerlogin>
+                  <table width="100%">
+                  <tr>
+              </cpanelif>
+          
+              <cpanelif $isreseller>
+                  <td class="reseller-drop-l">
+                  <!-- <strong><cpanel langprint="SwitchTheme"></strong><br /> -->
+                  <strong>Theme</strong>
+                  <form class="cellform" action="switchtheme.html" method="post" name="tform">
+                  <select name="theme" onchange="document.tform.submit();">
+                      <cpanel Resellers="themelistopt()">
+                  </select>
+                  <input id="themego" type="submit" class="input-button" value="<cpanel langprint="go-BoxTrapper">" />
+                  </form>
+                  </td>
+              </cpanelif>
+          
+              <cpanelif $isresellerlogin>
+                  <td class="reseller-drop-r">
+                  <!-- <strong><cpanel langprint="SwitchAcct"></strong> <br /> -->
+                  <strong>Account</strong>
+                  <form class="cellform" action="switchaccount.html" method="post" name="mform">
+                    <select name="user" onchange="document.mform.submit();">
+                      <cpanel Resellers="accountlistopt()">
+                    </select>
+                    <input id="acctgo" type="submit" class="input-button" value="<cpanel langprint="go-BoxTrapper">" />
+                  </form>  
+                  </td>
+              </cpanelif>
+          
+              <cpanelif $isreseller || $isresellerlogin>
+                  </tr> 
+                  </table>
+              </cpanelif>
+              <cpanelif $isreseller || $isresellerlogin>
+          </div><!-- end switch -->            
+        </div><!-- end .cellbox-body -->
+        </div><!-- end .cellbox -->
+    </div><!-- end .itembox -->
+  </cpanelif>
+
+<div id="boxes" class="clearfix">
+    
+<?cp Branding::applist(
+[div id="%" class="itembox"]
+    [div id="%-bdrop" class="celldrop"]&nbsp;[/div]
+    [div class="cellbox"]
+    [div class="cellbox-header"]
+      [h6 id="%-header" title="maketext('Double click to collapse/expand. Click to drag.')" class="index_box_header" ondblclick="rollbox\{leftparenthesis}this\{rightparenthesis};"]%[/h6]
+      [div id="%-expander" class="box-collapse-control" onclick="rollbox\{leftparenthesis}this\{rightparenthesis};"]&nbsp;[/div]
+    [/div]
+        [div id="%-body" class="cellbox-body"]
+      %
+            [div class="clearit"]&nbsp;[/div]
+        [/div]
+    [/div]
+    [div id="%-adrop" class="celldrop"]&nbsp;[/div]
+[/div]
+
+,group,group,group,desc,group,group,items::
+                [div class="item"][span class="additional_search_text" style="display\{colon}none"]${searchtext}[/span]
+                [span class="icon_wrap"][a onclick="icFAA[['${file}']];${onclick};return 1;" ${acontent} class="icon spriteicon_img" id="icon-${file}" style="display\{colon}block;" href="${url}"][/a][/span]
+        [a id="item_${file}" class="link" onclick="icFAA[['${file}']];${onclick};return 1;" ${acontent} href="${url}"]${itemdesc}[/a]
+                [/div]
+:,group,group) nvarglist=$NVDATA{'xmaingroupsorder'} ?>
+</div><!-- end boxes -->
+
+<script type="text/javascript">
+//<![CDATA[
+// javascript for ie6 hover effect
+  sfHover = function() {
+    var sfEls = document.getElementsByTagName("h6");
+    for (var i=0; i<sfEls.length; i++) {
+      sfEls[i].onmouseover=function() {
+        this.className+=" sfhover";
+      }
+      sfEls[i].onmouseout=function() {
+        this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+      }
+    }
+  }
+  if (window.attachEvent) window.attachEvent("onload", sfHover);
+//]]>
+</script>
+
+<div id="togglebox">
+  <cpanelif !$NVDATA{'x3_litegraphics'}><a href="hidegraphics.html" onclick="hidegraphics(); return false;"><cpanel langprint="liteGraphics"></a>&nbsp;|
+  <cpanelelse><a href="showgraphics.html" onclick="showgraphics(); return false;"><cpanel langprint="fullGraphics"></a>&nbsp;|</cpanelif>
+  <cpanelif !$NVDATA{'x3_hideicons'}>&nbsp;<a href="hideicons.html" onclick="hideicons(); return false;"><cpanel langprint="hideIcons"></a>&nbsp;|
+  <cpanelelse>&nbsp;<a href="showicons.html" onclick="showicons(); return false;"><cpanel langprint="showIcons"></a>&nbsp;|</cpanelif>
+  &nbsp;<a href="javascript:void(0)" onclick="reset_all_interface_settings()"><cpanel langprint="resetinterfacecfg"></a>&nbsp;|
+  &nbsp;<a href="javascript:void(0)" onclick="expandallboxes()"><cpanel langprint="revealboxes"></a>&nbsp;|
+  &nbsp;<a href="javascript:void(0)" onclick="defaultorder()"><cpanel langprint="resetboxes"></a>
+</div><!-- end togglebox -->
+
+</div><!-- end main -->
+<div class="clearit">&nbsp;</div>
+<div id="divgen"></div>
+
+<!-- Start Getting Started -->
+<cpanelfeature !getstart>
+  <script type="text/javascript">
+    NVData['x3_gettingstarted']='disable';
+  </script>
+</cpanelfeature>
+<cpanel Branding="include(getstarted-pop.html)">
+<!-- End Getting Started -->    
+
+<cpanel Branding="include(optionselect-pop.html)">
+
+<cpanelif !$NVDATA{'xstatscollapsed'}==expanded>
+  <script type="text/javascript">/* var ROWCOUNTER = {}; <?cp StatsBar::getrowcounter(ROWCOUNTER\{leftbracket}'%'\{rightbracket} = '%';,name,value) rowcounter=mainstats ?> */</script>
+</cpanelif>
+
+<cpanel Branding="include(stdfooter.html)"> 
+<!-- END branding/index.html -->

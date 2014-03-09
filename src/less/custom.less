@@ -1,0 +1,376 @@
+//
+// Load core variables and mixins
+// --------------------------------------------------
+
+@import "variables.less";
+@import "mixins.less";
+
+//@import "bootstrap.less";
+@import "local.less";
+
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+html, body {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 20px;
+  color: #333333;
+  background-color: #e3e3e3;
+}
+
+select,
+input[type="file"] {
+  height: 28px;
+  *margin-top: 4px;
+  line-height: 28px;
+}
+
+select {
+  width: 220px;
+  border: 1px solid #bbb;
+}
+
+a {
+  color: #197185;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #005580;
+  text-decoration: underline;
+}
+
+a br {
+    display: none;
+}
+
+.itembox {
+  .panel-variant(@panel-default-border; @panel-default-text; @panel-default-heading-bg; @panel-default-border);
+}
+
+#rightheader, #leftheader { float: none; display: block; clear: both;}
+
+#leftheader { margin-bottom: 10px; overflow: hidden;}
+
+.spriteheading_img { margin-left: 0; }
+
+@media screen and (max-width: 321px) {
+  i.visible-xs { display: inline !important; }
+}
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+    left: 0;
+  }
+
+  .row-offcanvas-right .sidebar-offcanvas {
+    right: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left .sidebar-offcanvas { 
+    left: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-right.active {
+    right: 50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left.active {
+    left: 50%; /* 6 columns */
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 50%; /* 6 columns */
+  }
+
+  #main { float: none; width: auto; }
+  #sub { float: none; width: 50%;}
+}
+
+
+/*--------------------------------------------------------------------------------
+ *  Table Styles
+ *--------------------------------------------------------------------------------*/
+
+table thead th, table tbody th {
+  position: relative;
+  background-color: #e5e5e5;
+  background-image: -webkit-gradient(linear, left top, left bottom, from( rgb(235, 235, 235)), to( rgb(229, 229, 229)));
+  background-image: -webkit-linear-gradient(top, rgb(235, 235, 235), rgb(229, 229, 229));
+  background-image: -moz-linear-gradient(top, rgb(235, 235, 235), rgb(229, 229, 229));
+  background-image: -o-linear-gradient(top, rgb(235, 235, 235), rgb(229, 229, 229));
+  background-image: -ms-linear-gradient(top, rgb(235, 235, 235), rgb(229, 229, 229));
+  background-image: linear-gradient(top, rgb(235, 235, 235), rgb(229, 229, 229));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#ebebeb', EndColorStr='#e5e5e5');
+  border-top: 1px solid #fafafa;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  height: 30px;
+  color: #666;
+  font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 30px;
+  margin: 0;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .6);
+  text-transform: none;   
+}
+
+table th, table td {
+  padding: 6px;
+}
+
+table td input, table td select,table td textarea {
+  margin-bottom: 0 !important;
+}
+
+table td form, table th form {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------------------------
+ *  Sortable Tables
+ *--------------------------------------------------------------------------------*/
+
+.sortable, .nonsortable {
+  width: 100%;
+}
+
+.sortable caption, .nonsortable caption {
+    color: #000;
+    font-size: 11px;
+}
+
+.sortable th,.nonsortable th,.dynamic_table th { }
+
+.sortable th a,.nonsortable th a,.dynamic_table th {
+    color: #000;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.sortable th a:active,.nonsortable th a:active,.dynamic_table th a:active {
+    color: #000;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.sortable th a:visited,.nonsortable th a:visited,.dynamic_table th a:visited {
+    color: #000;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+table.sortable, table.nonsortable, table.dynamic_table {
+    border: 1px solid #d2d2d2;
+    border-collapse: collapse;
+}
+
+.sortable td,.nonsortable td, .dynamic_table td{
+    border-bottom: 1px solid #d2d2d2;
+    border-right: 1px solid #d2d2d2;
+    background: #fff;
+}
+
+.sortable .nobrd {
+    border-right: none;
+}
+
+.sortable .nobrd-left {
+    border-right: none;
+    text-align: left;
+}
+
+.sortable .nobrd-right {
+    border-right: none;
+    text-align: right;
+}
+
+.sortable .nobrd-center {
+    border-right: none;
+    text-align: center;
+}
+
+.sortable .sql {
+    border: none;
+}
+
+.sortable .sql td {
+    padding: 3px;
+}
+
+.sortable .clickable {
+    cursor: pointer;
+}
+
+.sortable .row-odd,.sortable .info-odd,.nonsortable .row-odd,.nonsortable .info-odd {
+    background-color: #F6F8FD;
+    border-bottom: 1px solid #ccc;
+}
+
+.sortable .row-even,.sortable .info-even,.nonsortable .row-even .nonsortable .info-even {
+    background-color: #fff;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.sortable .diskused80,.nonsortable .diskused80 {
+    background-color: #ffffa0;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.sortable .diskused100,.nonsortable .diskused100 {
+    background-color: #faa;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+
+/*--------------------------------------------------------------------------------
+ *  Buttons
+ *--------------------------------------------------------------------------------*/
+.input-button, input[type=button] {
+    cursor: pointer; 
+    background-color: #ebebeb;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(245, 245, 245)), to(rgb(235, 235, 235)));
+    background-image: -webkit-linear-gradient(top, rgb(245, 245, 245), rgb(235, 235, 235));
+    background-image: -moz-linear-gradient(top, rgb(245, 245, 245), rgb(235, 235, 235));
+    background-image: -o-linear-gradient(top, rgb(245, 245, 245), rgb(235, 235, 235));
+    background-image: -ms-linear-gradient(top, rgb(245, 245, 245), rgb(235, 235, 235));
+    background-image: linear-gradient(top, rgb(245, 245, 245), rgb(235, 235, 235));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f5f5f5', EndColorStr='#ebebeb');
+    background-repeat: repeat-x;
+    border: 1px solid #c4c4c4;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1), inset 0 1px 0 #fff;    
+    vertical-align: top;
+    border: 1px solid #c4c4c4;
+    color: #757575;
+    display: inline-block;
+    *display: inline;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    height: 28px;
+    line-height: 28px;
+    margin-right: 4px;
+    padding: 0 14px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #fff;
+    text-transform: uppercase;
+    zoom: 1;
+}
+
+.create-button {
+    background-color: #49afcd;
+    *background-color: #2f96b4;
+    background-image: -ms-linear-gradient(top, #5bc0de, #2f96b4);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5bc0de), to(#2f96b4));
+    background-image: -webkit-linear-gradient(top, #5bc0de, #2f96b4);
+    background-image: -o-linear-gradient(top, #5bc0de, #2f96b4);
+    background-image: -moz-linear-gradient(top, #5bc0de, #2f96b4);
+    background-image: linear-gradient(top, #5bc0de, #2f96b4);
+    background-repeat: repeat-x;
+    border-color: #2f96b4 #2f96b4 #1f6377;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#5bc0de', endColorstr='#2f96b4', GradientType=0);
+    filter: progid:dximagetransform.microsoft.gradient(enabled=false);  
+    border-radius: 3px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5);    
+    vertical-align: top;
+    border: 1px solid #c4c4c4;
+    color: #fff;
+    display: inline-block;
+    *display: inline;
+    font-family: "Open Sans", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    height: 28px;
+    line-height: 28px;
+    margin-right: 4px;
+    padding: 0 14px;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
+    text-transform: uppercase;
+    zoom: 1;  
+}
+
+.create-button:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.create-button:hover,
+.create-button:active,
+.create-button.active,
+.create-button.disabled,
+.create-button[disabled] {
+  background-color: #2f96b4;
+  *background-color: #2a85a0;
+}
+
+.create-button:active,
+.create-button.active {
+  background-color: #24748c \9;
+}
+
+.create-button:hover, .input-button:hover {
+    text-decoration: none;
+    background-position: 0 -15px;
+    -webkit-transition: background-position 0.1s linear;
+    -moz-transition: background-position 0.1s linear;
+    -ms-transition: background-position 0.1s linear;
+    -o-transition: background-position 0.1s linear;
+    transition: background-position 0.1s linear;
+}
+
+.button-group button {
+    font: 100 10px verdana;
+    text-decoration: none;
+    background: url(/cPanel_magic_revision_1318958503/frontend/x3/branding/button-bg.gif) repeat-x top;
+    background-color: #E4E4E4;
+    color: #333;
+    cursor: hand;
+    vertical-align: middle;
+    border: 2px solid #797979;
+    border-top-color: #FFF;
+    border-left-color: #FFF;
+    margin: 2px;
+    padding: 2px;
+}
+
+.button-group button.default {
+    font-weight: 700;
+}
+
+.button-group button:hover,.button-group button.hover {
+    background: url(/cPanel_magic_revision_1318958503/frontend/x3/branding/button-bg-over.gif) repeat-x top;
+    background-color: #EBF09E;
+    border-top-color: #FFF;
+    border-left-color: #FFF;
+}
+
+.button-group button:active {
+    border: 2px solid #E4E4E4;
+    background-color: #BBB;
+    border-top-color: #333;
+    border-left-color: #333;
+}
